@@ -1,0 +1,9 @@
+{
+  "name": "burger-tower-game",
+  "version": "1.0.0",
+  "private": true,
+  "description": "떨어지는 재료를 차곡차곡 쌓는 햄버거 만들기 웹 게임",
+  "scripts": {"dev": "npx serve .", "start": "npx serve ."},
+  "keywords": ["game", "burger", "html5", "canvas"],
+  "license": "MIT"
+}

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="떨어지는 재료를 차곡차곡 받아 만드는 귀여운 햄버거 스태킹 게임" />
+  <meta name="theme-color" content="#ff725e" />
+  <title>버거 타워! — 햄버거 만들기 게임</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Dodum&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="celebration.css" />
+  <link rel="stylesheet" href="realism.css" />
+  <link rel="stylesheet" href="stack-mode.css" />
+  <link rel="stylesheet" href="compact-stage.css" />
+  <link rel="stylesheet" href="minimal.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <main class="shell">
+    <header class="brand">
+      <div class="brand-mark" aria-hidden="true"><span></span><i></i><b></b></div>
+      <div>
+        <p>JAMMY BURGER CLUB</p>
+        <h1>버거 타워!</h1>
+      </div>
+      <button id="soundBtn" class="sound-btn" type="button" aria-label="소리 끄기" title="소리 켜기/끄기">♪</button>
+    </header>
+
+    <section class="game-card" aria-label="햄버거 만들기 게임">
+      <div class="topbar">
+        <div class="stat"><span>FLOORS</span><strong id="levelText">0층</strong></div>
+        <div class="stat"><span>SCORE</span><strong id="scoreText">0000</strong></div>
+        <div class="stat lives"><span>BEST</span><strong id="livesText">0층</strong></div>
+        <button id="pauseBtn" class="pill-btn" type="button">일시정지</button>
+      </div>
+
+      <div class="order-strip">
+        <div class="order-label"><span>오늘의</span><b>레시피</b></div>
+        <ol id="recipeList" class="recipe-list" aria-label="재료 순서"></ol>
+      </div>
+
+      <div id="stage" class="stage">
+        <canvas id="gameCanvas" width="560" height="860" aria-label="세로형 게임 화면. 움직이는 재료를 클릭하면 고정된 빵 위로 떨어지고 전체 햄버거가 항상 보입니다."></canvas>
+        <div class="awning" aria-hidden="true"></div>
+
+        <div id="startScreen" class="overlay start-screen">
+          <div class="sticker">OPEN!</div>
+          <div class="hero-burger photo-burger" aria-hidden="true"><span></span><i></i><b></b></div>
+          <p class="eyebrow">READY TO STACK?</p>
+          <h2>오늘의 완벽한<br><em>햄버거</em>를 만들어줘!</h2>
+          <p class="guide">위에서 움직이는 재료를 <b>클릭</b>해 떨어뜨리세요.<br>원하는 만큼 쌓고 마지막 빵을 올리면 완성!</p>
+          <button id="startBtn" class="primary-btn" type="button">게임 시작 <span>→</span></button>
+          <p class="controls-hint">게임 화면 클릭 · 모바일은 화면 터치</p>
+        </div>
+
+        <div id="messageScreen" class="overlay message-screen hidden" aria-live="assertive">
+          <div id="messageIcon" class="message-icon">⏸</div>
+          <div class="chef-mascot" aria-hidden="true">
+            <div class="chef-hat">☁</div><div class="chef-face"><i></i><i></i><b>ᴗ</b></div>
+            <div class="eating-burger">🍔</div><span class="nom">냠!</span>
+          </div>
+          <h2 id="messageTitle">잠깐 쉬어가요</h2>
+          <p id="messageBody">준비되면 다시 시작!</p>
+          <button id="messageBtn" class="primary-btn" type="button">계속하기 <span>→</span></button>
+        </div>
+
+        <div id="toast" class="toast" aria-live="polite"></div>
+      </div>
+
+      <div class="mouse-controls"><span class="mouse-icon">↓</span><div><small>NEXT INGREDIENT</small><b id="nextText">쇠고기 패티</b></div><p>움직이는 재료를 클릭해 떨어뜨리세요</p><button id="finishBtn" type="button">마지막 빵 올리기</button></div>
+    </section>
+
+    <footer>
+      <p>MADE FRESH, STACKED WITH LOVE</p>
+      <span>© 2026 Burger Tower</span>
+    </footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
